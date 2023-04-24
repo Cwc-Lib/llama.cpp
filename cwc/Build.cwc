@@ -1,0 +1,23 @@
+-{vFlag}=""
+>
+-{vIncl}=
+-I ../
+-I ../examples/
+>
+;Build llama
+-c &../ -o obj/cpp_{_sPlatform}_{_sOpt}/
+-{vIncl}
+-{vFlag}
+>
+;Build common
+-c &../examples/ -o obj/cpp_{_sPlatform}_{_sOpt}/ -{vIncl}
+>
+;Build example
+-c ../examples/main/ -o obj/cpp_{_sPlatform}_{_sOpt}/ -{vIncl}
+>
+;Generate executable
+-o obj/cpp_{_sPlatform}_{_sOpt}/ -#To _out/{_sPlatform}_{_sOpt}/llama.*
+>
+-#Copy Rc/ _out/{_sPlatform}_{_sOpt}/
+>
+-#Run
